@@ -1,0 +1,130 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #08080d;
+  color: #e8baff;
+  font-family: monospace;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#scene {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+#rifle {
+  display: block;
+  width: min(100%, 1024px);
+  height: auto;
+  margin: auto;
+  image-rendering: pixelated;
+  mix-blend-mode: screen;
+  transform-origin: center;
+  transition: transform 0.12s ease;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-drag: none;
+  position: relative;
+  z-index: 1;
+}
+
+#rifle.recoil {
+  animation: recoil 0.12s steps(2);
+}
+
+@keyframes recoil {
+  0% { translate: 0 0; }
+  50% { translate: -8px 0; }
+  100% { translate: 0 0; }
+}
+
+#rifle.recoil.flipped {
+  animation-name: recoil-left;
+}
+
+@keyframes recoil-left {
+  0% { translate: 0 0; }
+  50% { translate: 8px 0; }
+  100% { translate: 0 0; }
+}
+
+.projectile {
+  position: absolute;
+  z-index: 3;
+  width: 12px;
+  height: 4px;
+  background: #fff2a6;
+  box-shadow: 0 0 8px #ff91e8;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #171022;
+  border: 1px solid #a66bdb;
+  color: #f1caff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #422254;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+#fire {
+  border-color: #ff8fe2;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  width: 130px;
+  accent-color: #d28cff;
+}
+
+#status {
+  color: #d7a7ff;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #rifle {
+    width: 100%;
+  }
+
+  .controls {
+    padding: 12px;
+  }
+}

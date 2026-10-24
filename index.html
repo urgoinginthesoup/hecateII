@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hecate II</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div id="scene">
+      <img id="rifle" src="images/hecate2.png" alt="Pixel-art Hecate II">
+    </div>
+
+    <div class="controls">
+      <button id="up">Aim up ▲</button>
+      <button id="down">Aim down ▼</button>
+      <button id="turn">Turn around ↔</button>
+      <button id="reset">Reset</button>
+
+      <label for="angle">
+        Aim angle
+        <input id="angle" type="range" min="-60" max="60" value="0">
+      </label>
+
+      <button id="fire">✦ FIRE ✦</button>
+    </div>
+
+    <p id="status">HECATE II — READY</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
